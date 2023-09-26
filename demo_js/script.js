@@ -172,6 +172,83 @@ function ejemploDoWhile() {
 }
 
 
+/*
+Para 8
+(num % 2 == 0 && num != 20 && num != 0 && !(num % 8 == 0 || num % 6 == 0))
+(true && true && true && !(true || false))
+((true && true && true) && !true)
+(true && false) ---> false
+*/
+
+/*
+Para 5
+(num % 2 == 0 && num != 20 && num != 0 && !(num % 8 == 0 || num % 6 == 0))
+(false && true && true && !(false || false))
+((false && true && true) && !false)
+(false && true) ---> false
+*/
+
+//Si es mult2 y distinto 20 y distinto 0 y además no es mult8 o ni de mult6
+function ejemploCondicionales(num) {
+    if (num % 2 == 0 && num != 20 && num != 0 && !(num % 8 == 0 || num % 6 == 0)) {
+        console.log("Número cumple las restricciones: "+num);
+    }else{
+        console.log("Número NO cumple las restricciones: "+num);
+    }
+}
+
+function ejemploArray() {
+    // posición 0 a N-1 --> N es data.length
+    let data = [1, "hola", 2.2, true, [2, 3, 5], [[5, 3], [2, 7], [1, 10]]];
+    console.log(data[1]); //"hola"
+    console.log(data[data.length - 1]); //[[5,3],[2,7],[1,10]]
+    console.log(data[4][1]);
+    console.log(data[5][1][1]);
+
+    const fruits = ["Banana", "Orange", "Apple", "Strawberry", "Tangerine"];
+    // N = 5 --> fruits.length 
+    // 0...N-1 --> 0...4
+    for (let i = 0; i < fruits.length; i++) {
+        console.log(fruits[i]);
+    }
+
+    // Con While
+    let i = 0;
+    console.log("Con While***");
+    while (i < fruits.length) {
+        console.log(fruits[i]);
+        i++;
+    }
+
+    //Sólo para arrays For-each
+    fruits.forEach(function (fruit) {
+        console.log(fruit);
+    })
+
+    // Añadir elementos
+    fruits.push("Mango");
+    fruits.push("Rabsperry", "Grapes", "Melon");
+
+    console.log(fruits);
+
+    // Borrar elementos
+    //ultimo
+    fruits.pop();
+    console.log(fruits);
+
+    // Cambiar un elemento
+    fruits[0] = "Raspberry";
+    console.log(fruits);
+
+    // Convierte a string
+    console.log(fruits.toString()); 
+
+    // Ordena con método de array sort()
+    // Nota: para entrevistas de trabajo te pueden pedir que lo hagas sin sort(). Revisar algoritmos de ordenación.
+    console.log(fruits.sort());
+}
+
+
 /* Llamada a las funciones/ejecución de funciones*/ 
 //cruzarCalle();
 //console.log("Ejecuta cruzarCalle2:");
@@ -180,5 +257,10 @@ function ejemploDoWhile() {
 //encenderPC();
 //printYears();
 //ejemploWhile()
-//comprobarNombre()
-ejemploDoWhile()
+//comprobarNombre();
+//ejemploDoWhile();
+//ejemploCondicionales(4);
+//ejemploCondicionales(14);
+//ejemploCondicionales(5);
+//ejemploCondicionales(10);
+ejemploArray();
