@@ -393,31 +393,27 @@ function ejemploObjetos() {
   };
 }
 
-
 //car.drive(100);
 
-
 function ejemploString() {
+  let cadena = "hola que tal te va la vida";
 
-    let cadena = "hola que tal te va la vida";
-
-    for (let i = 0; i < cadena.length; i++) {
-        if (cadena[i] !== " ") {
-            console.log(cadena[i]);
-        }
+  for (let i = 0; i < cadena.length; i++) {
+    if (cadena[i] !== " ") {
+      console.log(cadena[i]);
     }
-    cadena.slice(7, 13); // 7,13-1 --> "e tal ""
+  }
+  cadena.slice(7, 13); // 7,13-1 --> "e tal ""
 
-    cadena.slice(-12);
-    let email = "hola@gmail.com"
-    email.slice(-4)
+  cadena.slice(-12);
+  let email = "hola@gmail.com";
+  email.slice(-4);
 
-
-    //Reemplazar parte de un string
-    let message = "hola que tal";
-    let arrMess = message.split(" ");
-    arrMess[0] = 'adios';
-    arrMess.join(" ");
+  //Reemplazar parte de un string
+  let message = "hola que tal";
+  let arrMess = message.split(" ");
+  arrMess[0] = "adios";
+  arrMess.join(" ");
 }
 
 /* Llamada a las funciones/ejecución de funciones*/
@@ -451,64 +447,176 @@ true && (true||false) --> true&&true --> true
 //1993
 false && (true||false) --> false && true --> false
 */
-function calculaBisiesto(){
-    while(true){
-        let year = prompt("Introduce un año para saber si es bisiesto");
-        if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)){
-            console.log("Es bisiesto:"+year);
-            alert("Es bisiesto:"+year);
-            break;
-        }else{
-            console.log("NO es bisiesto:"+year);
-        }
+function calculaBisiesto() {
+  while (true) {
+    let year = prompt("Introduce un año para saber si es bisiesto");
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+      console.log("Es bisiesto:" + year);
+      alert("Es bisiesto:" + year);
+      break;
+    } else {
+      console.log("NO es bisiesto:" + year);
     }
+  }
 }
 
-
-// 
+//
 console.log(document.getElementById("miId5").innerHTML);
 document.getElementsByClassName("miClase");
 
 let letras = document.getElementsByClassName("miClase"); // iterable [A,B,C,D,E]
 
 for (let i = 0; i < letras.length; i++) {
-    console.log(letras[i].innerHTML); 
+  console.log(letras[i].innerHTML);
 }
-
 
 let anchor = document.getElementsByTagName("a");
 
 for (let i = 0; i < anchor.length; i++) {
-    console.log(anchor[i].innerHTML); // Link1, Link2, etc....
-    console.log(anchor[i].pathname);
-    console.log(anchor[i].href);
+  console.log(anchor[i].innerHTML); // Link1, Link2, etc....
+  console.log(anchor[i].pathname);
+  console.log(anchor[i].href);
 }
 
 //ID
 document.getElementById("miId5");
-document.getElementById("miId5").innerHTML
+document.getElementById("miId5").innerHTML;
 //ID escritura
-document.getElementById("miId5").innerHTML = "FullStack"
+document.getElementById("miId5").innerHTML = "FullStack";
 
 // Lectura
 // Class
 document.getElementsByClassName("miClase");
 
-document.getElementsByClassName("miClase")[2]
+document.getElementsByClassName("miClase")[2];
 // Escritura
 // Class
 document.getElementsByClassName("miClase")[2].innerHTML = "paella";
 
 /* Query Selector */
 
-console.log(document.querySelector('#miDiv .miClase').innerText)
+console.log(document.querySelector("#miDiv .miClase").innerText);
 
-console.log(document.querySelector('#miDiv #miId1.miClase').innerText)
+console.log(document.querySelector("#miDiv #miId1.miClase").innerText);
 
 let textos = document.querySelectorAll("#miDiv .miClase");
 
 // Todos los links
 for (let i = 0; i < textos.length; i++) {
-    console.log(textos[i].innerHTML);
+  console.log(textos[i].innerHTML);
 }
 
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+
+function clearData() {
+  document.getElementById("demo").innerHTML = "";
+}
+
+// El segundo parámetro de addEventListener es la función de callback
+//Función de callback: función que se ejecuta a raíz de otra acción
+document.getElementById("myBtn").addEventListener("click", displayDate);
+document.getElementById("myBtn2").addEventListener("click", clearData);
+
+function displayHideDate() {
+  if (document.getElementById("demo2").innerHTML == "") {
+    document.getElementById("demo2").innerHTML = Date();
+  } else {
+    // Fecha pintada previamente
+    document.getElementById("demo2").innerHTML = "";
+  }
+}
+
+document.getElementById("myBtn3").addEventListener("click", displayHideDate);
+
+document.getElementById("boton2").addEventListener("click", function () {
+  console.error("Alerta de fusión en el núcleo");
+  console.warn("Lean la documentación");
+});
+
+// Paso de valores por parámentro
+let p1 = 5;
+let p2 = 7;
+let result = 0;
+
+document.getElementById("boton3").addEventListener("click", function () {
+  myFunction(p1, p2);
+});
+
+function myFunction(a, b) {
+  if (result == 0) {
+    result = p1 + p2;
+    document.getElementById("result2").innerHTML += result;
+  } else {
+    alert("Ya se hizo la cuenta");
+  }
+}
+
+/* Sobrecarga de eventos sobre mismo elemento HTML */
+function sendAlert() {
+  alert("Te fuiste y me dejaste!!!!!");
+}
+
+function sayHello() {
+  alert("Hola, te he echado de menos!!!!!");
+}
+document.querySelector("#mensaje").addEventListener("mouseout", sendAlert);
+
+document.querySelector("#mensaje").addEventListener("mouseover", sayHello);
+
+const parrafos = document.querySelectorAll("p"); // [p,p,p,p,p]
+
+for (let i = 0; i < parrafos.length; i++) {
+  parrafos[i].addEventListener("mouseover", function () {
+    parrafos[i].style.color = "red";
+  });
+
+  parrafos[i].addEventListener("mouseout", function () {
+    parrafos[i].style.color = "black";
+  });
+}
+
+// Crear nodo
+document.getElementById("boton4").addEventListener("click", function () {
+  const para = document.createElement("p"); //<p>
+  const node = document.createTextNode("Texto creado desde JS. Nodo nuevo");
+
+  para.id = "p3"; // Añadir ID
+  para.appendChild(node); // p + texto
+
+  para.classList.add("new"); // // Añadir clase
+
+  const element = document.getElementById("div1");
+  element.appendChild(para); // div1 + para
+});
+
+document.getElementById("boton5").addEventListener("click", function () {
+  const parent = document.getElementById("div1");
+  const child = document.getElementById("p1");
+  const newPara = document.createElement("p");
+  const node = document.createTextNode("Este es tu nuevo texto");
+  newPara.appendChild(node);
+  parent.replaceChild(newPara, child); //reemplaza un elemento por otro
+});
+
+// Poner/quitar clase
+document.querySelector("#div1").addEventListener("mouseover", function () {
+  document.querySelector("#div1").classList.toggle("fondo");
+});
+
+document.querySelector("#div1").addEventListener("mouseout", function () {
+  document.querySelector("#div1").classList.toggle("fondo");
+});
+
+document.getElementById("boton6").addEventListener("click", function () {
+  const datos = ["Patatas", "Pescado", "Naranja", "Queso"]; // viene de un "servidor externo"
+  // Template string
+  const lista = `<ul>
+                  <li>${datos[0]}</li>
+                  <li>${datos[1]}</li>
+                  <li>${datos[2]}</li>
+                  <li>${datos[3]}</li>
+                </ul>`;
+  document.getElementById("lista").innerHTML = lista;
+});
