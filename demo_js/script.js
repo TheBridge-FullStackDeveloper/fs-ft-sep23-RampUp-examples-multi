@@ -1,4 +1,4 @@
-console.log("hola mundo");
+//console.log("hola mundo");
 
 /** Declaración de funciones  */
 function cruzarCalle() {
@@ -270,10 +270,10 @@ function calculaResta(a, b) {
   }
   return resultado; // resta
 }
-
+/*
 let result_resta = calculaResta(2, 3); // Llamada a función
 console.log(`El resultado de la resta es: ${result_resta}`); // Imprime resultado
-
+*/
 // Con función flecha
 const calculaResta2 = (a, b) => {
   // Lógica que necesite la función
@@ -285,10 +285,10 @@ const calculaResta2 = (a, b) => {
   }
   return resultado; // resta
 };
-
+/*
 let result_resta2 = calculaResta2(2, 3); // Llamada a función
 console.log(`El resultado de la resta es: ${result_resta2}`); // Imprime resultado
-
+*/
 function sum(a, b) {
   //Varias
   //Líneas de
@@ -296,15 +296,19 @@ function sum(a, b) {
   //..
   return a + b;
 }
+/*
 const res = sum(1, 3);
 console.log("El resultado fue " + res);
 console.log("El cuadrado del resultado es: " + res ** 2);
+*/
 
 // Función flecha
 const sum2 = (a, b) => a + b;
+/*
 const res2 = sum2(1, 3);
 console.log("El resultado fue " + res2);
 console.log("El cuadrado del resultado es: " + res2 ** 2);
+*/
 
 function createUser(name) {
   if (name.length > 0 && name.length < 10) {
@@ -313,14 +317,14 @@ function createUser(name) {
     return "error nombre usuario";
   }
 }
-
+/*
 console.log("Msj: " + createUser("Alex"));
 console.log("Msj: " + createUser("Guillermu"));
 console.log("Msj: " + createUser("Albertu"));
 console.log("Msj: " + createUser("Xavier"));
 console.log("Msj: " + createUser("Fulgen"));
 console.log("Msj: " + createUser("Fddddddddddddddddddddddddd"));
-
+*/
 const person = {
   firstName: "John",
   lastName: "Doe",
@@ -431,3 +435,80 @@ function ejemploString() {
 //ejemploCondicionales(5);
 //ejemploCondicionales(10);
 //ejemploArray();
+
+/*
+- Los años bisiestos son múltiplos de 4
+- Los múltiplos de 100 no lo son
+- Los múltiplos de 400 sí
+
+// 100
+true && (false||false) --> true && false --> false
+// 400
+true && (false||true) --> true && true --> true
+//4
+true && (true||false) --> true&&true --> true
+
+//1993
+false && (true||false) --> false && true --> false
+*/
+function calculaBisiesto(){
+    while(true){
+        let year = prompt("Introduce un año para saber si es bisiesto");
+        if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)){
+            console.log("Es bisiesto:"+year);
+            alert("Es bisiesto:"+year);
+            break;
+        }else{
+            console.log("NO es bisiesto:"+year);
+        }
+    }
+}
+
+
+// 
+console.log(document.getElementById("miId5").innerHTML);
+document.getElementsByClassName("miClase");
+
+let letras = document.getElementsByClassName("miClase"); // iterable [A,B,C,D,E]
+
+for (let i = 0; i < letras.length; i++) {
+    console.log(letras[i].innerHTML); 
+}
+
+
+let anchor = document.getElementsByTagName("a");
+
+for (let i = 0; i < anchor.length; i++) {
+    console.log(anchor[i].innerHTML); // Link1, Link2, etc....
+    console.log(anchor[i].pathname);
+    console.log(anchor[i].href);
+}
+
+//ID
+document.getElementById("miId5");
+document.getElementById("miId5").innerHTML
+//ID escritura
+document.getElementById("miId5").innerHTML = "FullStack"
+
+// Lectura
+// Class
+document.getElementsByClassName("miClase");
+
+document.getElementsByClassName("miClase")[2]
+// Escritura
+// Class
+document.getElementsByClassName("miClase")[2].innerHTML = "paella";
+
+/* Query Selector */
+
+console.log(document.querySelector('#miDiv .miClase').innerText)
+
+console.log(document.querySelector('#miDiv #miId1.miClase').innerText)
+
+let textos = document.querySelectorAll("#miDiv .miClase");
+
+// Todos los links
+for (let i = 0; i < textos.length; i++) {
+    console.log(textos[i].innerHTML);
+}
+
