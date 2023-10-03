@@ -594,9 +594,9 @@ document.getElementById("boton4").addEventListener("click", function () {
 document.getElementById("boton5").addEventListener("click", function () {
   const parent = document.getElementById("div1");
   const child = document.getElementById("p1");
-  const newPara = document.createElement("p");
-  const node = document.createTextNode("Este es tu nuevo texto");
-  newPara.appendChild(node);
+  const newPara = document.createElement("p"); // p
+  const texto = document.createTextNode("Este es tu nuevo texto"); // texto
+  newPara.appendChild(texto);
   parent.replaceChild(newPara, child); //reemplaza un elemento por otro
 });
 
@@ -620,3 +620,66 @@ document.getElementById("boton6").addEventListener("click", function () {
                 </ul>`;
   document.getElementById("lista").innerHTML = lista;
 });
+
+document.getElementById("boton7").addEventListener("click", function () {
+  const datos = [
+    { marca: "BMW", peso: 1600, color: "rojo" },
+    { marca: "BMW", peso: 1600, color: "azul" },
+    { marca: "BMW", peso: 1600, color: "verde" },
+    { marca: "BMW", peso: 1600, color: "amarillo" },
+  ]; // viene de un "servidor externo"
+  // Template string
+  const lista = `<section>
+                  <article>
+                    <p>${datos[0].marca}</p>
+                    <p>${datos[0].peso}</p>
+                    <p>${datos[0].color}</p>
+                  </article>
+                  <article>
+                    <p>${datos[1].marca}</p>
+                    <p>${datos[1].peso}</p>
+                    <p>${datos[1].color}</p>
+                  </article>
+                  <article>
+                    <p>${datos[2].marca}</p>
+                    <p>${datos[2].peso}</p>
+                    <p>${datos[2].color}</p>
+                </article>
+                <article>
+                  <p>${datos[3].marca}</p>
+                  <p>${datos[3].peso}</p>
+                  <p>${datos[3].color}</p>
+              </article>
+
+                </section>`;
+  document.getElementById("lista2").innerHTML = lista;
+});
+
+
+document.getElementById("boton8").addEventListener("click", function () {
+  const datos = [
+    { marca: "BMW", peso: 1600, color: "rojo" },
+    { marca: "BMW", peso: 1600, color: "azul" },
+    { marca: "BMW", peso: 1600, color: "verde" },
+    { marca: "BMW", peso: 1600, color: "amarillo" },
+  ]; // viene de un "servidor externo"
+  // Template string
+  let lista = "<section>";
+
+  for (let i = 0; i < datos.length; i++) {
+    lista += `<article>
+              <p>${datos[i].marca}</p>
+              <p>${datos[i].peso}</p>
+              <p>${datos[i].color}</p>
+            </article>`
+  }
+    lista += "</section>";
+  document.getElementById("lista3").innerHTML = lista;
+});
+
+
+
+let a = 2,
+  b = 3;
+let res1 = `LA suma de ${a}+${b} es ${a + b}`;
+let res2 = "LA suma de " + a + "+" + b + " es " + (a + b);
